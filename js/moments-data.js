@@ -32,6 +32,17 @@ window.MOMENTS = {
     },
     {
       date: "2026.10.17",
+      time: "全天",
+      category: "无线电",
+      tags: ["猎狐", "BY2HIT", "赛事"],
+      text:
+        "17 号当天，我们在第二届中俄大学生科技人文交流活动现场举办了无线电猎狐挑战赛，持续了一整天。广场上的终点箱，是那天最具体的一个坐标。",
+      image: "../assets/moments/2026-10-17-radio-foxhunt.webp",
+      imageAlt: "第二届中俄大学生科技人文交流活动现场的无线电猎狐挑战赛终点箱",
+      imageCaption: "2026.10.17 / RADIO FOXHUNT"
+    },
+    {
+      date: "2026.10.17",
       time: "下午",
       category: "无线电",
       tags: ["BY2HIT", "BY4WNG", "交流"],
