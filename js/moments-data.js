@@ -101,7 +101,7 @@ window.MOMENTS = {
       time: "当天",
       category: "无线电",
       tags: ["航天70周年", "SSDV", "阿斯图友谊号"],
-      text: "10 月 8 日接收到了阿斯图友谊号 SSDV。",
+      text: "10 月 8 日接收到了阿斯图友谊号发的 SSDV。",
       image: "../assets/moments/2026-10-08-ssdv-reception.webp",
       imageAlt: "从阿斯图友谊号接收到的 SSDV 画面，包含中国国旗和彩色测试条",
       imageCaption: "2026.10.08 / SSDV RECEPTION",
