@@ -184,13 +184,18 @@ window.SITE_CONTENT = {
     note: "QSL VIA BG2HHW · DIRECT / BUREAU",
     links: [
       {
+        label: "BILIBILI",
+        value: "哔哩哔哩主页",
+        href: "https://space.bilibili.com/450550618"
+      },
+      {
         label: "GitHub",
-        value: "github.com/Lily4046",
+        value: "GitHub 主页",
         href: "https://github.com/Lily4046"
       },
       {
         label: "QRZ",
-        value: "qrz.com/db/BG2HHW",
+        value: "QRZ 呼号页",
         href: "https://www.qrz.com/db/BG2HHW"
       }
     ]
