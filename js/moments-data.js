@@ -95,6 +95,23 @@ window.MOMENTS = {
       text:
         "在纸上试了几种新的标题排版。屏幕上的完美和纸上的呼吸感，还是两件不同的事。",
       link: { label: "QSL 2026", href: "../#work" }
+    },
+    {
+      date: "2026.10.08—10.10",
+      time: "三天",
+      category: "无线电",
+      tags: ["SSTV", "SSDV", "阿斯图友谊号", "静安号"],
+      text:
+        "10 月 8—10 日，去接收阿斯图友谊号和静安号发来的 SSTV 与 SSDV 图像。",
+      link: { label: "航天 70 周年项目", href: "../#work" }
+    },
+    {
+      date: "2026.10.07",
+      time: "培训",
+      category: "无线电",
+      tags: ["航天70周年", "培训", "通联"],
+      text: "10 月 7 日，进行航天 70 周年通联活动的培训。",
+      link: { label: "看活动视觉", href: "../#work" }
     }
   ]
 };
