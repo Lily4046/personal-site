@@ -184,11 +184,6 @@ window.SITE_CONTENT = {
     note: "QSL VIA BG2HHW · DIRECT / BUREAU",
     links: [
       {
-        label: "BILIBILI",
-        value: "space.bilibili.com/450550618",
-        href: "https://space.bilibili.com/450550618"
-      },
-      {
         label: "GitHub",
         value: "github.com/Lily4046",
         href: "https://github.com/Lily4046"

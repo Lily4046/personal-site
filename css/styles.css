@@ -539,31 +539,6 @@ img {
   transform: none;
 }
 
-.hero-social {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 1px;
-  border-bottom: 1px solid var(--line-strong);
-  color: var(--ink-soft);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  transition: color 0.25s ease, border-color 0.25s ease;
-}
-
-.hero-social i {
-  color: var(--red);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-style: normal;
-}
-
-.hero-social:hover {
-  color: var(--red);
-  border-color: var(--red);
-}
-
 /* ---------------------------------------------------------
    Hero
    --------------------------------------------------------- */
