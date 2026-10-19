@@ -174,7 +174,7 @@ window.SITE_CONTENT = {
   },
 
   now: {
-    kicker: "04 / NOW",
+    kicker: "05 / NOW",
     title: "此刻，正在发生",
     intro: "一些正在进行、还没完成的小事。",
     cards: [
@@ -197,7 +197,7 @@ window.SITE_CONTENT = {
   },
 
   contact: {
-    kicker: "05 / CONTACT",
+    kicker: "06 / CONTACT",
     title: "保持联络。",
     lead:
       "想聊无线电、设计、代码，或者只是想交换一张 QSL 卡，都欢迎。信号不一定要很长，收到就好。",

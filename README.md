@@ -26,6 +26,7 @@ python -m http.server 8080
 - 关于与坐标信息：`about`
 - 项目列表：`work.projects`
 - 札记列表与 QSL 入口：`log`
+- 动态页面内容：`js/moments-data.js`
 - 正在做的事：`now.cards`
 - 联系方式：`contact.links`
 
@@ -53,6 +54,9 @@ index.html       页面结构
 css/styles.css   全部样式、深色模式与响应式
 js/content.js    内容配置
 js/main.js       渲染、主题、动效与交互
+js/moments-data.js  动态内容
+js/moments.js       动态页筛选与交互
+moments/index.html  动态页面
 assets/          图片与图标
 ```
 
