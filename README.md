@@ -44,7 +44,7 @@ QSL 项目带有可点击的图片画廊，图片列表在项目的 `gallery` �
 
 当前站点已按 `https://bg2hhw.top/` 配好 `CNAME`、canonical、`og:url`、`og:image`、`robots.txt` 和 `sitemap.xml`。
 
-部署时把仓库推送到 GitHub，在仓库 **Settings → Pages** 选择 `Deploy from a branch`、`main`、`/ (root)`，再填写自定义域名 `bg2hhw.top`。域名 DNS 交给 Cloudflare 管理，A 记录使用 GitHub Pages 官方地址，详见项目聊天记录中的部署步骤。
+部署时把仓库推送到 GitHub，在仓库 **Settings → Pages** 选择 `Deploy from a branch`、`main`、`/ (root)`，再填写自定义域名 `bg2hhw.top`。DNS 可以继续使用阿里云云解析，也可以交给 Cloudflare；两种方式都使用 GitHub Pages 官方 A 记录，详见项目聊天记录中的部署步骤。
 
 ## 文件
 
