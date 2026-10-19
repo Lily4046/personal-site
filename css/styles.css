@@ -2298,14 +2298,16 @@ img {
 }
 
 .moment-photo > a {
-  display: block;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
   background: var(--paper-deep);
 }
 
 .moment-photo img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
   transition: transform 0.7s var(--ease);
 }
