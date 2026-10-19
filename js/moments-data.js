@@ -32,6 +32,17 @@ window.MOMENTS = {
     },
     {
       date: "2026.10.17",
+      time: "下午",
+      category: "无线电",
+      tags: ["BY2HIT", "BY4WNG", "交流"],
+      text:
+        "10 月 17 日下午，和东南大学业余无线电协会的同学合影。BY2HIT 和 BY4WNG 的旗子出现在同一张照片里。",
+      image: "../assets/moments/2026-10-17-southeast-university.webp",
+      imageAlt: "BG2HHW 与东南大学业余无线电协会 BY4WNG 学生在交流活动上的合影",
+      imageCaption: "2026.10.17 / BY2HIT × BY4WNG"
+    },
+    {
+      date: "2026.10.17",
       time: "20:15",
       category: "工程",
       tags: ["无人机", "文档"],

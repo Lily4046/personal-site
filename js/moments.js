@@ -205,6 +205,30 @@
             </a>`;
         }
 
+        const photo = entry.image
+          ? `
+            <figure class="moment-photo">
+              <a
+                href="${entry.image}"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="查看这张动态照片的大图"
+              >
+                <img
+                  src="${entry.image}"
+                  alt="${entry.imageAlt || "动态照片"}"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </a>
+              ${
+                entry.imageCaption
+                  ? `<figcaption><span>${entry.imageCaption}</span><span>OPEN ↗</span></figcaption>`
+                  : ""
+              }
+            </figure>`
+          : "";
+
         return `
           <article
             class="moment-entry"
@@ -219,6 +243,7 @@
             <div class="moment-body">
               <div class="moment-tags">${tags}</div>
               <p>${entry.text}</p>
+              ${photo}
               ${link}
             </div>
           </article>`;
