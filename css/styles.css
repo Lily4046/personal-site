@@ -932,12 +932,42 @@ img {
 }
 
 .station-callsign {
-  margin: 15px 0 14px;
+  margin: 0;
   font-family: var(--font-serif);
-  font-size: 38px;
+  font-size: 34px;
   font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 1;
+}
+
+.station-identity {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 15px 0 14px;
+}
+
+.station-avatar {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 auto;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 4px rgba(206, 59, 47, 0.08);
+}
+
+.station-identity-text {
+  min-width: 0;
+}
+
+.station-role {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.11em;
 }
 
 .station-list {
