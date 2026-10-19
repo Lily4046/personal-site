@@ -54,7 +54,7 @@ window.SITE_CONTENT = {
     kicker: "02 / SELECTED WORK",
     title: "最近做过的一些事",
     intro:
-      "从一张卡片到一个系统，都是把想法落到现实里的练习。这里放几件我自己愿意反复看的东西。",
+      "从一张卡片到一台装置，都是把想法落到现实里的练习。这里放几件我自己愿意反复看的东西。",
     projects: [
       {
         index: "01",
@@ -85,17 +85,6 @@ window.SITE_CONTENT = {
       },
       {
         index: "02",
-        title: "CLUB WORKBENCH",
-        subtitle: "社团协作管理系统",
-        description:
-          "纯前端 + GitHub API 的社团数据工作台，管理 QSL、电台设备与实验室物品，支持在线编辑、历史记录和公开登记。",
-        tags: ["Vanilla JS", "GitHub API", "Data"],
-        visual: "ui",
-        link: "https://github.com/Lily4046/ham-radio-club-web",
-        meta: "WEB APP / 2026"
-      },
-      {
-        index: "03",
         title: "DRONE CONTROLLER",
         subtitle: "无人机飞行训练辅助遥控装置",
         description:
@@ -103,10 +92,11 @@ window.SITE_CONTENT = {
         tags: ["工程实践", "硬件", "文档"],
         visual: "drone",
         link: "",
-        meta: "ENGINEERING / 2025—2026"
+        meta: "ENGINEERING / 2025—2026",
+        size: "half"
       },
       {
-        index: "04",
+        index: "03",
         title: "70 YEARS OF SPACE",
         subtitle: "中国航天 70 周年活动视觉",
         description:
@@ -114,7 +104,8 @@ window.SITE_CONTENT = {
         tags: ["活动视觉", "信息设计", "科普"],
         visual: "poster",
         link: "",
-        meta: "VISUAL SYSTEM / 2026"
+        meta: "VISUAL SYSTEM / 2026",
+        size: "half"
       }
     ]
   },
@@ -136,18 +127,6 @@ window.SITE_CONTENT = {
           label: "打开 QSL 画廊",
           galleryKey: "qsl-2026",
           projectTitle: "QSL CARD / 2026"
-        }
-      },
-      {
-        date: "2026 / WEB",
-        tags: ["前端", "数据"],
-        title: "没有后端的社团工作台",
-        excerpt:
-          "用纯前端和 GitHub API 管理 QSL、电台设备与实验室物品。公开登记单独隔离，避免访客能读到主数据，也避免把权限问题留给运气。",
-        action: {
-          type: "link",
-          label: "查看项目",
-          href: "https://github.com/Lily4046/ham-radio-club-web"
         }
       },
       {
@@ -213,11 +192,6 @@ window.SITE_CONTENT = {
         label: "QRZ",
         value: "qrz.com/db/BG2HHW",
         href: "https://www.qrz.com/db/BG2HHW"
-      },
-      {
-        label: "CLUB SYSTEM",
-        value: "ham-radio-club-web",
-        href: "https://github.com/Lily4046/ham-radio-club-web"
       }
     ]
   }

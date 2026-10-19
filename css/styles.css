@@ -1195,6 +1195,10 @@ img {
   min-height: 500px;
 }
 
+.work-card.is-half {
+  grid-column: span 6;
+}
+
 .work-card.is-featured:hover {
   transform: none;
 }

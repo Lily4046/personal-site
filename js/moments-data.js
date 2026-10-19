@@ -31,19 +31,6 @@ window.MOMENTS = {
       link: { label: "去主页看 QSL", href: "../#work" }
     },
     {
-      date: "2026.10.18",
-      time: "21:40",
-      category: "工程",
-      tags: ["前端", "数据"],
-      text:
-        "社团工作台补上了公开 QSL 登记的隔离逻辑。访客只能提交，不能读到主数据，这比多一个功能更让人安心。",
-      link: {
-        label: "查看项目",
-        href: "https://github.com/Lily4046/ham-radio-club-web",
-        external: true
-      }
-    },
-    {
       date: "2026.10.17",
       time: "20:15",
       category: "工程",
