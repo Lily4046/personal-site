@@ -102,7 +102,7 @@ window.MOMENTS = {
       category: "无线电",
       tags: ["航天70周年", "培训", "SSTV", "SSDV", "阿斯图友谊号", "静安号"],
       text:
-        "10 月 7 日进行航天 70 周年通联活动培训；10 月 8—10 日去接收阿斯图友谊号和静安号发来的 SSTV 与 SSDV 图像。下面是其中一张接收画面。",
+        "10 月 7 日进行航天 70 周年通联活动培训；10 月 8—10 日接收到了阿斯图友谊号和静安号发来的 SSTV 与 SSDV 图像。",
       image: "../assets/moments/2026-10-08-sstv-reception.webp",
       imageAlt: "从卫星接收到的画面，包含中国国旗和彩色测试条",
       imageCaption: "2026.10.07—10.10 / TRAINING & RECEPTION",
