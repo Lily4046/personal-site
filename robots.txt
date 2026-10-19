@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bg2hhw.top/sitemap.xml
