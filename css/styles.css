@@ -87,6 +87,10 @@ body.lightbox-open {
   overflow: hidden;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 ::selection {
   background: var(--red);
   color: var(--paper);
