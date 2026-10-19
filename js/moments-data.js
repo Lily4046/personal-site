@@ -97,15 +97,14 @@ window.MOMENTS = {
       link: { label: "QSL 2026", href: "../#work" }
     },
     {
-      date: "2026.10.08—10.10",
-      time: "三天",
+      date: "2026.10.08",
+      time: "当天",
       category: "无线电",
-      tags: ["航天70周年", "SSTV", "SSDV", "阿斯图友谊号", "静安号"],
-      text:
-        "10 月 8—10 日接收到了阿斯图友谊号和静安号发来的 SSTV 与 SSDV 图像。",
-      image: "../assets/moments/2026-10-08-sstv-reception.webp",
-      imageAlt: "从卫星接收到的画面，包含中国国旗和彩色测试条",
-      imageCaption: "2026.10.08—10.10 / RECEPTION",
+      tags: ["航天70周年", "SSDV", "阿斯图友谊号"],
+      text: "10 月 8 日接收到了阿斯图友谊号 SSDV。",
+      image: "../assets/moments/2026-10-08-ssdv-reception.webp",
+      imageAlt: "从阿斯图友谊号接收到的 SSDV 画面，包含中国国旗和彩色测试条",
+      imageCaption: "2026.10.08 / SSDV RECEPTION",
       link: { label: "航天 70 周年项目", href: "../#work" }
     }
   ]
