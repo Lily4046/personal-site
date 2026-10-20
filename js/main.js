@@ -543,10 +543,23 @@
   });
 
   const stationDialog = $("#stationDialog");
-  $("#stationZoom").addEventListener("click", () => {
+  const stationCard = $(".station-card");
+  const openStationDialog = () => {
     stationDialog.showModal();
     document.body.classList.add("lightbox-open");
     $("#stationDialogClose").focus();
+  };
+
+  stationCard.addEventListener("click", (event) => {
+    if (event.target.closest("[data-copy-qth]")) return;
+    openStationDialog();
+  });
+
+  stationCard.addEventListener("keydown", (event) => {
+    if (event.target !== stationCard) return;
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openStationDialog();
   });
   $("#stationDialogClose").addEventListener("click", () => stationDialog.close());
   stationDialog.addEventListener("close", () => {

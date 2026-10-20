@@ -886,8 +886,14 @@ img {
   background: var(--paper-soft);
   border: 1px solid var(--line-strong);
   box-shadow: var(--shadow);
+  cursor: zoom-in;
   transform: rotate(1.4deg);
   transition: transform 0.5s var(--ease);
+}
+
+.station-card:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 6px;
 }
 
 .hero-visual:hover .station-card {
@@ -914,41 +920,6 @@ img {
   font-family: var(--font-mono);
   font-size: 8px;
   letter-spacing: 0.14em;
-}
-
-.station-card-tools {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.station-card-zoom {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0;
-  background: transparent;
-  color: var(--muted);
-  border: 0;
-  font-family: var(--font-mono);
-  font-size: 7px;
-  letter-spacing: 0.08em;
-  cursor: zoom-in;
-  transition: color 0.25s ease;
-}
-
-.station-card-zoom svg {
-  width: 10px;
-  height: 10px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.station-card-zoom:hover {
-  color: var(--red);
 }
 
 .station-status {
