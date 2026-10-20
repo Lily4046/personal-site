@@ -55,7 +55,10 @@
 
     setText("#stationCallsign", identity.station[0][1]);
     $("#stationList").innerHTML = identity.station
-      .map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`)
+      .map(
+        ([label, value]) =>
+          `<div${label === "QTH" ? ' class="station-list-qth"' : ""}><dt>${label}</dt><dd>${value}</dd></div>`
+      )
       .join("");
 
     const tickerItems = identity.ticker

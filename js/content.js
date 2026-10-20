@@ -17,7 +17,7 @@ window.SITE_CONTENT = {
     status: "ON AIR / SOMETIMES",
     station: [
       ["CALLSIGN", "BG2HHW"],
-      ["QTH", "HARBIN, CHINA"],
+      ["QTH", "黑龙江省哈尔滨市南岗区哈尔滨工业大学A01公寓"],
       ["GRID", "PN46"],
       ["BANDS", "HF · VHF · UHF"]
     ],
@@ -43,7 +43,7 @@ window.SITE_CONTENT = {
     quote: "“CQ CQ CQ, this is BG2HHW.”",
     facts: [
       ["CALLSIGN", "BG2HHW"],
-      ["QTH", "HARBIN, CHINA"],
+      ["QTH", "黑龙江省哈尔滨市南岗区哈尔滨工业大学A01公寓"],
       ["GRID", "PN46"],
       ["IARU", "REGION 3"],
       ["STATUS", "SOMETIMES ON AIR"]
