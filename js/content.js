@@ -74,6 +74,11 @@ window.SITE_CONTENT = {
             caption: "船舶电台日志 / 140 × 90 mm / 2026"
           },
           {
+            src: "assets/qsl-onmyoji.webp",
+            title: "B / ONMYOJI",
+            caption: "阴阳师十周年共绘 / 140 × 90 mm / 2026"
+          },
+          {
             src: "assets/qsl-archive.webp",
             title: "A / ARCHIVE",
             caption: "通联确认档案 / 140 × 90 mm / 2026"

@@ -1835,13 +1835,38 @@ img {
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 132px minmax(0, 1fr) auto;
   align-items: center;
-  gap: 36px;
+  gap: 28px;
   margin-top: 42px;
   padding: 31px 34px;
   background: var(--card);
   border: 1px solid var(--line-strong);
+}
+
+.qsl-callout-card {
+  position: relative;
+  z-index: 1;
+  width: 132px;
+  aspect-ratio: 3 / 2;
+  padding: 0;
+  overflow: hidden;
+  background: var(--paper-deep);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 12px 26px -18px rgba(0, 0, 0, 0.55);
+  cursor: zoom-in;
+}
+
+.qsl-callout-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.qsl-callout-card:hover img {
+  transform: scale(1.04);
 }
 
 .qsl-callout::after {
