@@ -2119,27 +2119,29 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 7px 10px;
-  margin: 13px 0 0;
+  gap: 8px 11px;
+  margin: 14px 0 0;
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 8px;
-  line-height: 1.5;
+  font-size: 9px;
+  line-height: 1.6;
 }
 
 .qsl-qth-label {
   color: var(--red);
+  font-size: 9px;
   letter-spacing: 0.12em;
 }
 
 .qsl-qth-value {
   color: var(--ink);
-  font-size: 9px;
+  font-size: 12px;
+  letter-spacing: -0.01em;
 }
 
 .qsl-qth-copy {
-  padding: 2px 5px;
-  font-size: 7px;
+  padding: 3px 6px;
+  font-size: 8px;
 }
 
 .qsl-callout-actions {
