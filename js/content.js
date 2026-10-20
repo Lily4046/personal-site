@@ -32,26 +32,8 @@ window.SITE_CONTENT = {
     ]
   },
 
-  about: {
-    kicker: "01 / ABOUT",
-    title: "在电波与纸张之间，<br>做一点具体的东西。",
-    paragraphs: [
-      "我在哈尔滨读书，也在这里接触业余无线电。呼号 <strong>BG2HHW</strong>。对我来说，无线电不只是一次通联，它还是一套很浪漫的工程语言：天线、传播、噪声、等待，以及从很远的地方收到一句「收到」。",
-      "我也会写前端、做平面与印刷、参与社团和课程项目。喜欢把一个想法推到能真正运行、能印刷、能被人使用的程度。",
-      "这个站点是一张长期更新的名片。放不下所有故事，但至少能留下一些坐标。"
-    ],
-    quote: "“CQ CQ CQ, this is BG2HHW.”",
-    facts: [
-      ["CALLSIGN", "BG2HHW"],
-      ["QTH", "黑龙江省哈尔滨市南岗区哈尔滨工业大学A01公寓"],
-      ["GRID", "PN46"],
-      ["IARU", "REGION 3"],
-      ["STATUS", "SOMETIMES ON AIR"]
-    ]
-  },
-
   work: {
-    kicker: "02 / SELECTED WORK",
+    kicker: "01 / SELECTED WORK",
     title: "最近做过的一些事",
     intro:
       "从一张卡片到一台装置，都是把想法落到现实里的练习。这里放几件我自己愿意反复看的东西。",
@@ -104,7 +86,7 @@ window.SITE_CONTENT = {
   },
 
   log: {
-    kicker: "03 / FIELD LOG",
+    kicker: "02 / FIELD LOG",
     title: "把过程也留下来",
     intro:
       "不只展示结果，也记下做东西时绕过的路、做过的取舍，以及还没完全想明白的部分。",
@@ -134,7 +116,7 @@ window.SITE_CONTENT = {
   },
 
   now: {
-    kicker: "05 / NOW",
+    kicker: "04 / NOW",
     title: "此刻，正在发生",
     intro: "一些正在进行、还没完成的小事。",
     cards: [
@@ -157,7 +139,7 @@ window.SITE_CONTENT = {
   },
 
   contact: {
-    kicker: "06 / CONTACT",
+    kicker: "05 / CONTACT",
     title: "保持联络。",
     lead:
       "想聊无线电、设计、代码，或者只是想交换一张 QSL 卡，都欢迎。信号不一定要很长，收到就好。",

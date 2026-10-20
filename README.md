@@ -23,7 +23,6 @@ python -m http.server 8080
 所有文字、项目、链接都在 `js/content.js` 里：
 
 - 个人介绍与首屏文案：`identity`
-- 关于与坐标信息：`about`
 - 项目列表：`work.projects`
 - 札记列表与 QSL 入口：`log`
 - 动态页面内容：`js/moments-data.js`

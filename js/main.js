@@ -26,7 +26,6 @@
 
   function renderContent() {
     const identity = content.identity;
-    const about = content.about;
     const work = content.work;
     const log = content.log;
     const now = content.now;
@@ -109,16 +108,6 @@
       <div class="ticker-group">${tickerItems}</div>
       <div class="ticker-group" aria-hidden="true">${tickerItems}</div>
     `;
-
-    setText("#aboutKicker", about.kicker);
-    $("#aboutTitle").innerHTML = about.title;
-    $("#aboutCopy").innerHTML = about.paragraphs
-      .map((paragraph) => `<p>${paragraph}</p>`)
-      .join("");
-    $("#aboutFacts").innerHTML = about.facts
-      .map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`)
-      .join("");
-    setText("#aboutQuote", about.quote);
 
     setText("#workKicker", work.kicker);
     setText("#workTitle", work.title);
