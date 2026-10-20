@@ -44,6 +44,28 @@
 
   syncThemeUI();
 
+  function syncLayoutUI() {
+    const isCompact = root.dataset.layout === "compact";
+    const toggle = $("#layoutToggle");
+    const nextLabel = isCompact ? "切换为舒展布局" : "切换为紧凑布局";
+    toggle.setAttribute("aria-pressed", String(isCompact));
+    toggle.setAttribute("aria-label", nextLabel);
+    toggle.title = nextLabel;
+  }
+
+  $("#layoutToggle").addEventListener("click", () => {
+    const next = root.dataset.layout === "compact" ? "spacious" : "compact";
+    root.dataset.layout = next;
+    try {
+      localStorage.setItem("bg2hhw-layout", next);
+    } catch (error) {
+      /* localStorage may be unavailable. */
+    }
+    syncLayoutUI();
+  });
+
+  syncLayoutUI();
+
   const clockFormatter = new Intl.DateTimeFormat("zh-CN", {
     timeZone: "Asia/Shanghai",
     hour: "2-digit",

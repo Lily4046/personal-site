@@ -50,13 +50,13 @@ QSL 项目带有可点击的图片画廊，图片列表在项目的 `gallery` �
 
 ```text
 index.html       页面结构
-css/styles.css   全部样式、深色模式与响应式
+css/styles.css   全部样式、深色模式、布局模式与响应式
 js/content.js    内容配置
-js/main.js       渲染、主题、动效与交互
+js/main.js       渲染、主题、布局切换、动效与交互
 js/moments-data.js  动态内容
 js/moments.js       动态页筛选与交互
 moments/index.html  动态页面
 assets/          图片与图标
 ```
 
-站点没有外部依赖，断网也能正常显示。深色模式会跟随系统，也可以手动切换并记住选择。
+站点没有外部依赖，断网也能正常显示。深色模式会跟随系统，也可以手动切换；舒展 / 紧凑布局同样会记住选择。
