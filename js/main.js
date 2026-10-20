@@ -66,11 +66,36 @@
             <dd>
               <span>${value}</span>
               <button
-                class="station-qth-copy"
+                class="station-qth-button station-qth-copy"
                 type="button"
                 data-copy-qth="${value}"
+                data-copy-label="复制"
                 aria-label="复制 QTH 地址"
               >复制</button>
+            </dd>
+          </div>
+        `;
+      })
+      .join("");
+
+    setText("#stationDialogCallsign", identity.station[0][1]);
+    $("#stationDialogList").innerHTML = identity.station
+      .map(([label, value]) => {
+        if (label !== "QTH") {
+          return `<div><dt>${label}</dt><dd>${value}</dd></div>`;
+        }
+
+        return `
+          <div class="station-dialog-qth">
+            <dt>${label}</dt>
+            <dd>
+              <span class="station-dialog-address">${value}</span>
+              <button
+                class="station-qth-button"
+                type="button"
+                data-copy-qth="${value}"
+                data-copy-label="复制地址"
+              >复制地址</button>
             </dd>
           </div>
         `;
@@ -534,10 +559,11 @@
     }
   });
 
-  $("#stationList").addEventListener("click", async (event) => {
+  document.addEventListener("click", async (event) => {
     const button = event.target.closest("[data-copy-qth]");
     if (!button) return;
 
+    const originalLabel = button.dataset.copyLabel || "复制";
     try {
       await copyText(button.dataset.copyQth);
       button.textContent = "已复制";
@@ -548,9 +574,20 @@
     }
 
     window.setTimeout(() => {
-      button.textContent = "复制";
+      button.textContent = originalLabel;
       button.classList.remove("is-copied");
     }, 1600);
+  });
+
+  const stationDialog = $("#stationDialog");
+  $("#stationZoom").addEventListener("click", () => {
+    stationDialog.showModal();
+    document.body.classList.add("lightbox-open");
+    $("#stationDialogClose").focus();
+  });
+  $("#stationDialogClose").addEventListener("click", () => stationDialog.close());
+  stationDialog.addEventListener("close", () => {
+    document.body.classList.remove("lightbox-open");
   });
 
   /* -------------------------------------------------------
