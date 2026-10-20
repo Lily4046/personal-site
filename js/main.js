@@ -136,6 +136,9 @@
     setText("#qslKicker", log.qsl.kicker);
     setText("#qslTitle", log.qsl.title);
     setText("#qslText", log.qsl.text);
+    const qth = identity.station.find(([label]) => label === "QTH")?.[1] || "";
+    setText("#qslQth", qth);
+    $("#qslQthCopy").dataset.copyQth = qth;
     setText("#qslGalleryLabel", log.qsl.galleryLabel);
     setText("#qslLinkLabel", log.qsl.qrzLabel);
     $("#qslLink").href = log.qsl.href;

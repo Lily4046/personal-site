@@ -2107,12 +2107,39 @@ img {
   line-height: 1.2;
 }
 
-.qsl-callout-copy > p:last-child {
+.qsl-callout-copy > #qslText {
   margin: 0;
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 8px;
   letter-spacing: 0.11em;
+}
+
+.qsl-qth {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 10px;
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.qsl-qth-label {
+  color: var(--red);
+  letter-spacing: 0.12em;
+}
+
+.qsl-qth-value {
+  color: var(--ink);
+  font-size: 9px;
+}
+
+.qsl-qth-copy {
+  padding: 2px 5px;
+  font-size: 7px;
 }
 
 .qsl-callout-actions {
