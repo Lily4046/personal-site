@@ -79,9 +79,9 @@ window.SITE_CONTENT = {
             caption: "阴阳师十周年共绘 / 140 × 90 mm / 2026"
           },
           {
-            src: "assets/qsl-archive.webp",
-            title: "A / ARCHIVE",
-            caption: "通联确认档案 / 140 × 90 mm / 2026"
+            src: "assets/qsl-laterano.webp",
+            title: "A / LATERANO",
+            caption: "明日方舟 · 拉特兰 / 140 × 90 mm / 2026"
           }
         ],
         link: "",
