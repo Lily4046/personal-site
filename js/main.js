@@ -55,10 +55,26 @@
 
     setText("#stationCallsign", identity.station[0][1]);
     $("#stationList").innerHTML = identity.station
-      .map(
-        ([label, value]) =>
-          `<div${label === "QTH" ? ' class="station-list-qth"' : ""}><dt>${label}</dt><dd>${value}</dd></div>`
-      )
+      .map(([label, value]) => {
+        if (label !== "QTH") {
+          return `<div><dt>${label}</dt><dd>${value}</dd></div>`;
+        }
+
+        return `
+          <div class="station-list-qth">
+            <dt>${label}</dt>
+            <dd>
+              <span>${value}</span>
+              <button
+                class="station-qth-copy"
+                type="button"
+                data-copy-qth="${value}"
+                aria-label="复制 QTH 地址"
+              >复制</button>
+            </dd>
+          </div>
+        `;
+      })
       .join("");
 
     const tickerItems = identity.ticker
@@ -498,18 +514,43 @@
     return copied;
   }
 
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    if (!fallbackCopy(text)) {
+      throw new Error("copy unavailable");
+    }
+  }
+
   $("#copyCallsign").addEventListener("click", async () => {
     const callsign = content.contact.callsign;
     try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(callsign);
-      } else if (!fallbackCopy(callsign)) {
-        throw new Error("copy unavailable");
-      }
+      await copyText(callsign);
       showToast(`呼号 ${callsign} 已复制`);
     } catch (error) {
       showToast(`呼号是 ${callsign}`);
     }
+  });
+
+  $("#stationList").addEventListener("click", async (event) => {
+    const button = event.target.closest("[data-copy-qth]");
+    if (!button) return;
+
+    try {
+      await copyText(button.dataset.copyQth);
+      button.textContent = "已复制";
+      button.classList.add("is-copied");
+      showToast("QTH 地址已复制");
+    } catch (error) {
+      showToast("复制失败，请手动选择地址");
+    }
+
+    window.setTimeout(() => {
+      button.textContent = "复制";
+      button.classList.remove("is-copied");
+    }, 1600);
   });
 
   /* -------------------------------------------------------
