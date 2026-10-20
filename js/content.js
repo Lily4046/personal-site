@@ -90,18 +90,6 @@ window.SITE_CONTENT = {
       },
       {
         index: "02",
-        title: "DRONE CONTROLLER",
-        subtitle: "无人机飞行训练辅助遥控装置",
-        description:
-          "参与装置结构、交互与项目文档的整理，在真实的尺寸、成本与使用场景里，把一个课程想法做成可用的工程方案。",
-        tags: ["工程实践", "硬件", "文档"],
-        visual: "drone",
-        link: "",
-        meta: "ENGINEERING / 2025—2026",
-        size: "half"
-      },
-      {
-        index: "03",
         title: "70 YEARS OF SPACE",
         subtitle: "中国航天 70 周年活动视觉",
         description:
@@ -110,7 +98,7 @@ window.SITE_CONTENT = {
         visual: "poster",
         link: "",
         meta: "VISUAL SYSTEM / 2026",
-        size: "half"
+        featured: true
       }
     ]
   },
@@ -132,18 +120,6 @@ window.SITE_CONTENT = {
           label: "打开 QSL 画廊",
           galleryKey: "qsl-2026",
           projectTitle: "QSL CARD / 2026"
-        }
-      },
-      {
-        date: "2025—2026 / ENGINEERING",
-        tags: ["硬件", "课程项目"],
-        title: "无人机训练装置的工程取舍",
-        excerpt:
-          "结构、尺寸、成本和实际使用场景会互相拉扯。真正难的不是把东西做出来，而是解释为什么这样做，以及它为什么能工作。",
-        action: {
-          type: "link",
-          label: "看项目卡片",
-          href: "#work"
         }
       }
     ],

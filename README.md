@@ -30,7 +30,7 @@ python -m http.server 8080
 - 正在做的事：`now.cards`
 - 联系方式：`contact.links`
 
-项目卡片支持四种视觉：`image`、`ui`、`drone`、`poster`。要换图片，把图片放进 `assets/`，再改项目里的 `image` 路径。
+项目卡片支持三种视觉：`image`、`ui`、`poster`。要换图片，把图片放进 `assets/`，再改项目里的 `image` 路径。
 
 QSL 项目带有可点击的图片画廊，图片列表在项目的 `gallery` 字段里；按键盘方向键可以切换。
 

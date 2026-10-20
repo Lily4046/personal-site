@@ -319,35 +319,6 @@
         </div>`;
     }
 
-    if (type === "drone") {
-      return `
-        <svg class="drone-drawing" viewBox="0 0 320 220" role="img" aria-label="无人机结构线稿">
-          <circle class="drone-muted" cx="160" cy="110" r="78"></circle>
-          <circle class="drone-thin" cx="160" cy="110" r="54"></circle>
-          <path class="drone-thin" d="M160 14v192M34 110h252"></path>
-          <path class="drone-accent" d="M132 96 82 54M188 96l50-42M132 124l-50 42M188 124l50 42"></path>
-          <path class="drone-thin" d="M146 98 177 129M174 98 143 129"></path>
-          <rect x="136" y="88" width="48" height="44" rx="10" transform="rotate(45 160 110)"></rect>
-          <circle cx="160" cy="110" r="8"></circle>
-          <g class="drone-accent">
-            <ellipse cx="78" cy="50" rx="32" ry="6"></ellipse>
-            <ellipse cx="242" cy="50" rx="32" ry="6"></ellipse>
-            <ellipse cx="78" cy="170" rx="32" ry="6"></ellipse>
-            <ellipse cx="242" cy="170" rx="32" ry="6"></ellipse>
-          </g>
-          <g>
-            <circle cx="78" cy="50" r="7"></circle>
-            <circle cx="242" cy="50" r="7"></circle>
-            <circle cx="78" cy="170" r="7"></circle>
-            <circle cx="242" cy="170" r="7"></circle>
-          </g>
-          <path class="drone-thin" d="M139 130 132 158M181 130l7 28M128 158h18M174 158h18"></path>
-          <text x="20" y="209">FLIGHT TRAINER / REV.A</text>
-          <text x="259" y="209">SCALE 1:6</text>
-          <text x="13" y="23">FIG. 03</text>
-        </svg>`;
-    }
-
     return `
       <div class="poster-mini" aria-hidden="true">
         <div class="poster-mini-top">

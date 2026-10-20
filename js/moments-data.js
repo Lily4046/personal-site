@@ -53,15 +53,6 @@ window.MOMENTS = {
       imageCaption: "2026.10.17 / BY2HIT × BY4WNG"
     },
     {
-      date: "2026.10.17",
-      time: "20:15",
-      category: "工程",
-      tags: ["无人机", "文档"],
-      text:
-        "给无人机项目补文档。解释为什么这样设计，比把结构画出来更难，也更有意思。",
-      link: { label: "看项目卡片", href: "../#work" }
-    },
-    {
       date: "2026.10.16",
       time: "22:30",
       category: "无线电",
