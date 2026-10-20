@@ -64,14 +64,14 @@ window.SITE_CONTENT = {
           "一套三款、双面印刷的 QSL 卡。以档案、共绘长卷与航海日志为题，从版式、图像重构到出血与印刷校验完整落地。",
         tags: ["平面设计", "排版", "印刷"],
         visual: "image",
-        image: "assets/qsl-storm-log.webp",
-        alt: "BG2HHW 2026 航海日志主题 QSL 卡正面设计",
+        image: "assets/qsl-laterano.webp",
+        alt: "BG2HHW 2026 明日方舟拉特兰主题 QSL 卡正面设计",
         galleryKey: "qsl-2026",
         gallery: [
           {
-            src: "assets/qsl-storm-log.webp",
-            title: "C / STORM LOG",
-            caption: "船舶电台日志 / 140 × 90 mm / 2026"
+            src: "assets/qsl-laterano.webp",
+            title: "A / LATERANO",
+            caption: "明日方舟 · 拉特兰 / 140 × 90 mm / 2026"
           },
           {
             src: "assets/qsl-onmyoji.webp",
@@ -79,9 +79,9 @@ window.SITE_CONTENT = {
             caption: "阴阳师十周年共绘 / 140 × 90 mm / 2026"
           },
           {
-            src: "assets/qsl-laterano.webp",
-            title: "A / LATERANO",
-            caption: "明日方舟 · 拉特兰 / 140 × 90 mm / 2026"
+            src: "assets/qsl-storm-log.webp",
+            title: "C / STORM LOG",
+            caption: "船舶电台日志 / 140 × 90 mm / 2026"
           }
         ],
         link: "",
