@@ -9,7 +9,7 @@ window.SITE_CONTENT = {
     title:
       '把信号，<br>发向<span class="accent">更远</span>的<span class="title-tail">地方。</span>',
     lead:
-      "我是 BG2HHW，一名在哈尔滨折腾电波、电路与网页的人。",
+      "我是 BG2HHW，一名在哈尔滨的火腿。",
     primaryCta: { label: "看看作品", href: "#work" },
     secondaryCta: { label: "打个招呼", href: "#contact" },
     coordinates: "45°45′N / 126°38′E",
