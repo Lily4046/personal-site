@@ -13,12 +13,12 @@ window.SITE_CONTENT = {
     primaryCta: { label: "看看作品", href: "#work" },
     secondaryCta: { label: "打个招呼", href: "#contact" },
     coordinates: "45°45′N / 126°38′E",
-    grid: "PN46",
+    grid: "PN35",
     status: "ON AIR / SOMETIMES",
     station: [
       ["CALLSIGN", "BG2HHW"],
       ["QTH", "黑龙江省哈尔滨市南岗区哈尔滨工业大学A01公寓"],
-      ["GRID", "PN46"],
+      ["GRID", "PN35"],
       ["BANDS", "HF · VHF · UHF"]
     ],
     ticker: [
