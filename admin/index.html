@@ -7,7 +7,7 @@
     <meta name="color-scheme" content="light dark">
     <title>动态后台 · BG2HHW</title>
     <link rel="icon" href="/assets/favicon-32.png?v=20261021ak" sizes="32x32" type="image/png">
-    <link rel="stylesheet" href="/css/admin.css?v=20261021al">
+    <link rel="stylesheet" href="/css/admin.css?v=20261022am">
   </head>
   <body>
     <header class="admin-header">
@@ -48,14 +48,23 @@
       <section class="dashboard" id="dashboard" hidden>
         <div class="dashboard-head">
           <div>
-            <p class="admin-kicker">MOMENTS / CMS</p>
-            <h1>动态管理</h1>
-            <p class="admin-lead" id="dashboardSummary">正在读取动态…</p>
+            <p class="admin-kicker">CONTENT / CMS</p>
+            <h1>内容管理</h1>
+            <p class="admin-lead" id="dashboardSummary">正在读取内容…</p>
           </div>
           <button class="new-button" id="newButton" type="button">新建动态</button>
         </div>
 
-        <div class="admin-grid">
+        <div class="admin-tabs" role="tablist" aria-label="内容类型">
+          <button class="admin-tab is-active" type="button" data-panel="moments" role="tab" aria-selected="true">
+            动态管理
+          </button>
+          <button class="admin-tab" type="button" data-panel="site" role="tab" aria-selected="false">
+            整站内容
+          </button>
+        </div>
+
+        <div class="admin-grid" id="momentsPanel">
           <form class="editor" id="momentForm">
             <div class="editor-head">
               <div>
@@ -147,11 +156,40 @@
             <div class="admin-list" id="adminList"></div>
           </section>
         </div>
+
+        <section class="site-panel" id="sitePanel" hidden>
+          <div class="site-panel-head">
+            <div>
+              <p class="admin-kicker">SITE / JSON</p>
+              <h2>编辑整站内容</h2>
+              <p>
+                管理首页身份、作品、札记、现在与联系方式。标题和正文允许少量
+                <code>&lt;br&gt;</code>、<code>&lt;strong&gt;</code> 与
+                <code>&lt;span&gt;</code> 标签。
+              </p>
+            </div>
+            <a class="preview-link" href="/" target="_blank" rel="noreferrer noopener">
+              预览主页 ↗
+            </a>
+          </div>
+
+          <label class="site-editor-field">
+            <span>SITE_CONTENT / JSON</span>
+            <textarea id="siteEditor" spellcheck="false" aria-label="整站内容 JSON"></textarea>
+          </label>
+
+          <div class="site-actions">
+            <button class="save-button" id="saveSiteButton" type="button">保存整站内容</button>
+            <button class="text-button" id="formatSiteButton" type="button">格式化</button>
+            <button class="text-button" id="reloadSiteButton" type="button">重新载入</button>
+            <span class="form-message" id="siteMessage" role="status"></span>
+          </div>
+        </section>
       </section>
     </main>
 
     <div class="admin-toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="/js/admin.js?v=20261021al"></script>
+    <script src="/js/admin.js?v=20261022am"></script>
   </body>
 </html>
 

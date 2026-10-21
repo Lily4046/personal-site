@@ -7,6 +7,8 @@
     "db:migrate:local": "wrangler d1 migrations apply DB --local --persist-to .wrangler/state",
     "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
     "deploy": "wrangler pages deploy . --project-name bg2hhw-site"
+  },
+  "devDependencies": {
+    "wrangler": "^4.135.0"
   }
 }
-

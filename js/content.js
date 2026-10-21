@@ -4,6 +4,11 @@
    --------------------------------------------------------- */
 
 window.SITE_CONTENT = {
+  seo: {
+    title: "BG2HHW · 把信号发向更远的地方",
+    description:
+      "BG2HHW 的个人主页：业余无线电、工程实践、印刷设计与前端开发。坐标哈尔滨，网格 PN35HS。"
+  },
   identity: {
     kicker: "AMATEUR RADIO · ENGINEERING · HARBIN",
     title:

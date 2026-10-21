@@ -7,7 +7,7 @@
 - 首页、作品、QSL、札记和联系页面
 - 舒展 / 紧凑布局、深色 / 浅色主题
 - `/moments/` 动态页从 D1 数据库读取内容
-- `/admin/` 后台登录后可新增、编辑、发布、隐藏和删除动态
+- `/admin/` 后台可编辑整站内容，并新增、编辑、发布、隐藏和删除动态
 - API 不可用时动态页自动使用 `js/moments-data.js` 中的静态内容
 
 ## 本地开发
@@ -72,5 +72,5 @@ npm run deploy
 - API：`functions/api/`
 - Cloudflare 配置：`wrangler.toml`
 
-后台目前通过图片 URL 引用图片。把图片放进 `assets/moments/` 或填写完整 HTTPS 地址即可。
+后台的「整站内容」使用 JSON 编辑器管理首页、作品、札记、现在和联系方式；「动态管理」使用表单发布日常动态。图片目前通过 URL 引用，可放入 `assets/moments/` 或填写完整 HTTPS 地址。
 

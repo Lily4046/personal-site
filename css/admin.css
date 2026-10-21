@@ -231,12 +231,103 @@ textarea {
   border-bottom: 1px solid var(--line-strong);
 }
 
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.admin-tab {
+  min-height: 38px;
+  padding: 0 14px;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.admin-tab.is-active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
 .admin-grid {
   display: grid;
   grid-template-columns: minmax(380px, 0.9fr) minmax(420px, 1.1fr);
   gap: clamp(28px, 5vw, 72px);
   margin-top: 42px;
   align-items: start;
+}
+
+.site-panel {
+  margin-top: 36px;
+  padding: clamp(24px, 3.5vw, 40px);
+  background: var(--paper-soft);
+  border: 1px solid var(--line-strong);
+}
+
+.site-panel-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-panel-head h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.15;
+}
+
+.site-panel-head p:last-child {
+  max-width: 760px;
+  margin: 13px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.site-panel-head code {
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.preview-link {
+  flex: 0 0 auto;
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.site-editor-field {
+  margin-top: 24px;
+}
+
+.site-editor-field textarea {
+  min-height: 620px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.65;
+  tab-size: 2;
+}
+
+.site-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  margin-top: 18px;
+}
+
+.site-actions .form-message {
+  flex: 1 1 260px;
 }
 
 .editor {
@@ -442,6 +533,14 @@ textarea {
     flex-direction: column;
   }
 
+  .admin-tabs {
+    width: 100%;
+  }
+
+  .admin-tab {
+    flex: 1;
+  }
+
   .new-button {
     width: 100%;
   }
@@ -467,6 +566,24 @@ textarea {
   }
 
   .save-button {
+    width: 100%;
+  }
+
+  .site-panel-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-editor-field textarea {
+    min-height: 480px;
+    font-size: 11px;
+  }
+
+  .site-actions {
+    align-items: stretch;
+  }
+
+  .site-actions .save-button {
     width: 100%;
   }
 }

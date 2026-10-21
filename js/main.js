@@ -1,7 +1,7 @@
-(function () {
+(async function () {
   "use strict";
 
-  const content = window.SITE_CONTENT;
+  let content = window.SITE_CONTENT;
   const root = document.documentElement;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const themeMeta = document.querySelector('meta[name="theme-color"]');
@@ -15,6 +15,21 @@
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
+  try {
+    const response = await fetch("/api/site", {
+      headers: { accept: "application/json" },
+      cache: "no-store"
+    });
+    if (response.ok) {
+      const remote = await response.json();
+      if (remote.content && typeof remote.content === "object") {
+        content = remote.content;
+      }
+    }
+  } catch (error) {
+    /* Use the bundled content when the API is unavailable. */
+  }
+
   function setText(selector, text) {
     const node = $(selector);
     if (node) node.textContent = text;
@@ -25,6 +40,12 @@
      ------------------------------------------------------- */
 
   function renderContent() {
+    if (content.seo?.title) document.title = content.seo.title;
+    const description = document.querySelector('meta[name="description"]');
+    if (description && content.seo?.description) {
+      description.setAttribute("content", content.seo.description);
+    }
+
     const identity = content.identity;
     const work = content.work;
     const log = content.log;

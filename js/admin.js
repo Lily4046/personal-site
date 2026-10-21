@@ -2,6 +2,7 @@
   "use strict";
 
   const $ = (selector) => document.querySelector(selector);
+  const $$ = (selector) => Array.from(document.querySelectorAll(selector));
   const loginView = $("#loginView");
   const dashboard = $("#dashboard");
   const loginForm = $("#loginForm");
@@ -23,6 +24,7 @@
         })[char]
     );
   let entries = [];
+  let siteLoaded = false;
   let toastTimer = 0;
 
   function showToast(message) {
@@ -56,6 +58,19 @@
     loginView.hidden = authenticated;
     dashboard.hidden = !authenticated;
     logoutButton.hidden = !authenticated;
+  }
+
+  function setPanel(panelName) {
+    const isMoments = panelName === "moments";
+    $("#momentsPanel").hidden = !isMoments;
+    $("#sitePanel").hidden = isMoments;
+    $("#newButton").hidden = !isMoments;
+    $$(".admin-tab").forEach((tab) => {
+      const active = tab.dataset.panel === panelName;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", String(active));
+    });
+    if (!isMoments) loadSiteContent();
   }
 
   function resetForm() {
@@ -136,12 +151,34 @@
     }
   }
 
+  async function loadSiteContent(force = false) {
+    if (siteLoaded && !force) return;
+    $("#siteMessage").textContent = "正在读取整站内容…";
+    try {
+      const data = await api("/api/admin/site");
+      if (!data.content) throw new Error("数据库中没有整站内容，请先执行迁移。");
+      $("#siteEditor").value = JSON.stringify(data.content, null, 2);
+      $("#siteMessage").textContent = data.updatedAt
+        ? `已载入，最后更新：${data.updatedAt}`
+        : "已载入。";
+      siteLoaded = true;
+    } catch (error) {
+      if (error.status === 401) {
+        setView(false);
+        loginMessage.textContent = "登录已过期，请重新登录。";
+        return;
+      }
+      $("#siteMessage").textContent = error.message;
+    }
+  }
+
   async function checkSession() {
     try {
       const session = await api("/api/admin/session");
       setView(session.authenticated);
       if (session.authenticated) {
         resetForm();
+        setPanel("moments");
         await loadEntries();
       }
     } catch (error) {
@@ -162,6 +199,7 @@
       loginMessage.textContent = "";
       setView(true);
       resetForm();
+      setPanel("moments");
       await loadEntries();
     } catch (error) {
       loginMessage.textContent = error.message;
@@ -216,11 +254,55 @@
   });
 
   $("#newButton").addEventListener("click", () => {
+    setPanel("moments");
     resetForm();
     form.scrollIntoView({ behavior: "smooth", block: "start" });
   });
   $("#resetButton").addEventListener("click", resetForm);
   $("#refreshButton").addEventListener("click", loadEntries);
+
+  $$(".admin-tab").forEach((tab) => {
+    tab.addEventListener("click", () => setPanel(tab.dataset.panel));
+  });
+
+  $("#formatSiteButton").addEventListener("click", () => {
+    try {
+      const parsed = JSON.parse($("#siteEditor").value);
+      $("#siteEditor").value = JSON.stringify(parsed, null, 2);
+      $("#siteMessage").textContent = "JSON 格式正确。";
+    } catch (error) {
+      $("#siteMessage").textContent = `JSON 格式错误：${error.message}`;
+    }
+  });
+
+  $("#reloadSiteButton").addEventListener("click", () => loadSiteContent(true));
+
+  $("#saveSiteButton").addEventListener("click", async () => {
+    let content;
+    try {
+      content = JSON.parse($("#siteEditor").value);
+    } catch (error) {
+      $("#siteMessage").textContent = `JSON 格式错误：${error.message}`;
+      return;
+    }
+
+    $("#siteMessage").textContent = "正在保存整站内容…";
+    try {
+      await api("/api/admin/site", {
+        method: "PUT",
+        body: JSON.stringify({ content })
+      });
+      showToast("整站内容已保存。");
+      $("#siteMessage").textContent = "已保存，刷新主页即可看到更新。";
+      siteLoaded = false;
+    } catch (error) {
+      if (error.status === 401) {
+        setView(false);
+        loginMessage.textContent = "登录已过期，请重新登录。";
+      }
+      $("#siteMessage").textContent = error.message;
+    }
+  });
 
   adminList.addEventListener("click", async (event) => {
     const editButton = event.target.closest("[data-edit]");
