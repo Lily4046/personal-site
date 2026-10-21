@@ -8,5 +8,5 @@ PUBLIC_SITE_URL = "https://bg2hhw.top"
 [[d1_databases]]
 binding = "DB"
 database_name = "bg2hhw-moments"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "f2dd9342-f2d0-477c-a930-a801daf29099"
 
