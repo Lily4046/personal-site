@@ -22,7 +22,7 @@
     );
 
   try {
-    const response = await fetch("/api/moments", {
+    const response = await fetch(root.dataset.momentsApi || "/api/moments", {
       headers: { accept: "application/json" },
       cache: "no-store"
     });

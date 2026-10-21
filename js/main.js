@@ -181,7 +181,7 @@
 
   async function syncRemoteContent() {
     try {
-      const response = await fetch("/api/site", {
+      const response = await fetch(root.dataset.siteApi || "/api/site", {
         headers: { accept: "application/json" },
         cache: "no-store"
       });

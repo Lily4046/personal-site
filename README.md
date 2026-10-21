@@ -74,3 +74,7 @@ npm run deploy
 
 后台的「整站内容」使用 JSON 编辑器管理首页、作品、札记、现在和联系方式；「动态管理」使用表单发布日常动态。图片目前通过 URL 引用，可放入 `assets/moments/` 或填写完整 HTTPS 地址。
 
+## Django 学习版
+
+`django-app/` 是同一主页的 Django 实现，使用 SQLite 和 Django Admin 管理整站内容。启动方式与模型说明见 `django-app/README.md`。该版本目前独立运行，不影响现有 Cloudflare Pages 站点。
+
