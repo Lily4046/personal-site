@@ -1,62 +1,76 @@
-# BG2HHW · 个人主页
+# BG2HHW · 动态个人主页
 
-一个无需构建、直接打开就能看的单页个人主页。主题是业余无线电、工程实践、印刷设计与前端开发。
+个人主页使用 Cloudflare Pages 托管，动态内容通过 Pages Functions 和 D1 数据库读取。
 
-当前内容根据工作区里的呼号、QSL 设计与工程资料整理。姓名、邮箱、头像等个人信息还可以继续替换成你的真实版本。
+## 功能
 
-![主页预览](assets/preview.jpg)
+- 首页、作品、QSL、札记和联系页面
+- 舒展 / 紧凑布局、深色 / 浅色主题
+- `/moments/` 动态页从 D1 数据库读取内容
+- `/admin/` 后台登录后可新增、编辑、发布、隐藏和删除动态
+- API 不可用时动态页自动使用 `js/moments-data.js` 中的静态内容
 
-<img src="assets/preview-mobile.png" width="280" alt="移动端预览">
+## 本地开发
 
-## 预览
-
-直接双击 `index.html`，或在目录里开一个本地服务器：
+首次运行：
 
 ```powershell
-python -m http.server 8080
+npm run db:migrate:local
+npm run dev
 ```
 
-然后访问 `http://localhost:8080`。
+访问：
 
-## 修改内容
+- 网站：`http://127.0.0.1:8788/`
+- 后台：`http://127.0.0.1:8788/admin/`
+- 动态页：`http://127.0.0.1:8788/moments/`
 
-所有文字、项目、链接都在 `js/content.js` 里：
+本地开发密码在 `package.json` 的 `dev` 命令中，仅供本机测试。
 
-- 个人介绍与首屏文案：`identity`
-- 项目列表：`work.projects`
-- 札记列表与 QSL 入口：`log`
-- 动态页面内容：`js/moments-data.js`
-- 正在做的事：`now.cards`
-- 联系方式：`contact.links`
+## 云上初始化
 
-项目卡片支持三种视觉：`image`、`ui`、`poster`。要换图片，把图片放进 `assets/`，再改项目里的 `image` 路径。
+先登录 Cloudflare：
 
-QSL 项目带有可点击的图片画廊，图片列表在项目的 `gallery` 字段里；按键盘方向键可以切换。
-
-## 可以继续补充
-
-- 换成自己的项目截图或照片
-- 增加简历 PDF 下载
-- 接入表单服务（Formspree、Cloudflare Workers 等）
-- 部署到 GitHub Pages / Vercel / Cloudflare Pages
-
-## 域名上线
-
-当前站点已按 `https://bg2hhw.top/` 配好 `CNAME`、canonical、`og:url`、`og:image`、`robots.txt` 和 `sitemap.xml`。
-
-部署时把仓库推送到 GitHub，在仓库 **Settings → Pages** 选择 `Deploy from a branch`、`main`、`/ (root)`，再填写自定义域名 `bg2hhw.top`。DNS 可以继续使用阿里云云解析，也可以交给 Cloudflare；两种方式都使用 GitHub Pages 官方 A 记录，详见项目聊天记录中的部署步骤。
-
-## 文件
-
-```text
-index.html       页面结构
-css/styles.css   全部样式、深色模式、布局模式与响应式
-js/content.js    内容配置
-js/main.js       渲染、主题、布局切换、动效与交互
-js/moments-data.js  动态内容
-js/moments.js       动态页筛选与交互
-moments/index.html  动态页面
-assets/          图片与图标
+```powershell
+wrangler login
 ```
 
-站点没有外部依赖，断网也能正常显示。深色模式会跟随系统，也可以手动切换；舒展 / 紧凑布局同样会记住选择。
+创建 D1 数据库：
+
+```powershell
+wrangler d1 create bg2hhw-moments
+```
+
+把返回的 `database_id` 写入 `wrangler.toml`，然后执行：
+
+```powershell
+npm run db:migrate:remote
+```
+
+创建 Pages 项目与后台密钥：
+
+```powershell
+wrangler pages project create bg2hhw-site --production-branch main
+wrangler pages secret put ADMIN_PASSWORD --project-name bg2hhw-site
+wrangler pages secret put SESSION_SECRET --project-name bg2hhw-site
+```
+
+`SESSION_SECRET` 应使用至少 32 位的随机字符串。最后部署：
+
+```powershell
+npm run deploy
+```
+
+部署到 `pages.dev` 并验证无误后，再把 `bg2hhw.top` 切换到 Cloudflare Pages。不要在验证前删除现有 DNS 记录。
+
+## 内容结构
+
+- 静态页面内容：`js/content.js`
+- 动态页本地回退数据：`js/moments-data.js`
+- D1 数据库迁移：`migrations/`
+- 后台页面：`admin/index.html`、`js/admin.js`、`css/admin.css`
+- API：`functions/api/`
+- Cloudflare 配置：`wrangler.toml`
+
+后台目前通过图片 URL 引用图片。把图片放进 `assets/moments/` 或填写完整 HTTPS 地址即可。
+

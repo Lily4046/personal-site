@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="light dark">
+    <title>动态后台 · BG2HHW</title>
+    <link rel="icon" href="/assets/favicon-32.png?v=20261021ak" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="/css/admin.css?v=20261021al">
+  </head>
+  <body>
+    <header class="admin-header">
+      <a class="admin-brand" href="/">
+        <span aria-hidden="true"></span>
+        <strong>BG2HHW</strong>
+        <small>CONTENT ADMIN</small>
+      </a>
+      <div class="admin-header-actions">
+        <a href="/moments/">查看动态页</a>
+        <button class="admin-logout" id="logoutButton" type="button" hidden>退出</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="login-view" id="loginView">
+        <p class="admin-kicker">PRIVATE / ADMIN</p>
+        <h1>发布一条新动态。</h1>
+        <p class="admin-lead">
+          登录后可以新增、编辑、发布或隐藏动态。登录状态会保持 12 小时。
+        </p>
+        <form class="login-form" id="loginForm">
+          <label>
+            <span>后台密码</span>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            >
+          </label>
+          <button type="submit">登录后台</button>
+          <p class="form-message" id="loginMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section class="dashboard" id="dashboard" hidden>
+        <div class="dashboard-head">
+          <div>
+            <p class="admin-kicker">MOMENTS / CMS</p>
+            <h1>动态管理</h1>
+            <p class="admin-lead" id="dashboardSummary">正在读取动态…</p>
+          </div>
+          <button class="new-button" id="newButton" type="button">新建动态</button>
+        </div>
+
+        <div class="admin-grid">
+          <form class="editor" id="momentForm">
+            <div class="editor-head">
+              <div>
+                <span class="editor-mode" id="editorMode">NEW ENTRY</span>
+                <h2 id="editorTitle">新建动态</h2>
+              </div>
+              <button class="text-button" id="resetButton" type="button">清空</button>
+            </div>
+
+            <input id="momentId" type="hidden">
+
+            <div class="field-row">
+              <label>
+                <span>日期</span>
+                <input id="date" type="text" inputmode="numeric" placeholder="2026.10.21" required>
+              </label>
+              <label>
+                <span>时间</span>
+                <input id="time" type="text" placeholder="20:30 / 当天">
+              </label>
+            </div>
+
+            <label>
+              <span>分类</span>
+              <input id="category" type="text" list="categories" value="日常" required>
+              <datalist id="categories">
+                <option value="站点">
+                <option value="设计">
+                <option value="工程">
+                <option value="无线电">
+                <option value="日常">
+              </datalist>
+            </label>
+
+            <label>
+              <span>标签</span>
+              <input id="tags" type="text" placeholder="短波, 天线, 73">
+              <small>用逗号分隔。</small>
+            </label>
+
+            <label>
+              <span>正文</span>
+              <textarea id="text" rows="6" required></textarea>
+            </label>
+
+            <div class="field-row">
+              <label>
+                <span>图片地址</span>
+                <input id="image" type="text" placeholder="/assets/moments/photo.webp">
+              </label>
+              <label>
+                <span>图片说明</span>
+                <input id="imageCaption" type="text" placeholder="2026.10.21 / PHOTO">
+              </label>
+            </div>
+
+            <label>
+              <span>图片替代文字</span>
+              <input id="imageAlt" type="text" placeholder="描述图片内容">
+            </label>
+
+            <div class="field-row">
+              <label>
+                <span>链接文字</span>
+                <input id="linkLabel" type="text" placeholder="查看项目">
+              </label>
+              <label>
+                <span>链接地址</span>
+                <input id="linkHref" type="text" placeholder="/#work">
+              </label>
+            </div>
+
+            <label class="publish-check">
+              <input id="published" type="checkbox" checked>
+              <span>立即发布</span>
+            </label>
+
+            <div class="editor-actions">
+              <button class="save-button" type="submit">保存动态</button>
+              <span class="form-message" id="formMessage" role="status"></span>
+            </div>
+          </form>
+
+          <section class="entry-panel">
+            <div class="entry-panel-head">
+              <span>已保存动态</span>
+              <button class="text-button" id="refreshButton" type="button">刷新</button>
+            </div>
+            <div class="admin-list" id="adminList"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div class="admin-toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/js/admin.js?v=20261021al"></script>
+  </body>
+</html>
+

@@ -1,13 +1,38 @@
-(function () {
+(async function () {
   "use strict";
 
-  const data = window.MOMENTS;
+  let data = window.MOMENTS;
   const root = document.documentElement;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
   const pad = (value) => String(value).padStart(2, "0");
+  const escapeHtml = (value) =>
+    String(value ?? "").replace(
+      /[&<>"']/g,
+      (char) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[char]
+    );
+
+  try {
+    const response = await fetch("/api/moments", {
+      headers: { accept: "application/json" },
+      cache: "no-store"
+    });
+    if (response.ok) {
+      const remote = await response.json();
+      if (Array.isArray(remote.entries)) data = remote;
+    }
+  } catch (error) {
+    /* Keep the bundled entries when the API is unavailable. */
+  }
 
   if (!data) {
     console.error("MOMENTS is missing. Check js/moments-data.js.");
@@ -197,10 +222,10 @@
           <button
             class="moment-filter${active ? " is-active" : ""}"
             type="button"
-            data-filter="${category}"
+            data-filter="${escapeHtml(category)}"
             aria-pressed="${active}"
           >
-            ${category}<span>${pad(categoryCount(category))}</span>
+            ${escapeHtml(category)}<span>${pad(categoryCount(category))}</span>
           </button>`;
       })
       .join("");
@@ -210,17 +235,17 @@
     list.innerHTML = data.entries
       .map((entry, index) => {
         const tags = entry.tags
-          .map((tag) => `<span>${tag}</span>`)
+          .map((tag) => `<span>${escapeHtml(tag)}</span>`)
           .join("");
         let link = "";
 
         if (entry.link) {
-          const external = Boolean(entry.link.external);
+          const external = /^https?:\/\//i.test(entry.link.href);
           link = `
-            <a class="moment-link" href="${entry.link.href}" ${
+            <a class="moment-link" href="${escapeHtml(entry.link.href)}" ${
               external ? 'target="_blank" rel="noreferrer noopener"' : ""
             }>
-              ${entry.link.label}
+              ${escapeHtml(entry.link.label)}
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="${external ? "M7 17 17 7M8 7h9v9" : "M5 12h13M13 6l6 6-6 6"}"></path>
               </svg>
@@ -231,21 +256,21 @@
           ? `
             <figure class="moment-photo">
               <a
-                href="${entry.image}"
+                href="${escapeHtml(entry.image)}"
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="查看这张动态照片的大图"
               >
                 <img
-                  src="${entry.image}"
-                  alt="${entry.imageAlt || "动态照片"}"
+                  src="${escapeHtml(entry.image)}"
+                  alt="${escapeHtml(entry.imageAlt || "动态照片")}"
                   loading="lazy"
                   decoding="async"
                 >
               </a>
               ${
                 entry.imageCaption
-                  ? `<figcaption><span>${entry.imageCaption}</span><span>OPEN ↗</span></figcaption>`
+                  ? `<figcaption><span>${escapeHtml(entry.imageCaption)}</span><span>OPEN ↗</span></figcaption>`
                   : ""
               }
             </figure>`
@@ -254,17 +279,17 @@
         return `
           <article
             class="moment-entry"
-            data-category="${entry.category}"
+            data-category="${escapeHtml(entry.category)}"
             data-reveal
             style="--delay: ${index * 45}ms"
           >
             <div class="moment-time">
-              <span>${entry.date}</span>
-              <span>${entry.time}</span>
+              <span>${escapeHtml(entry.date)}</span>
+              <span>${escapeHtml(entry.time)}</span>
             </div>
             <div class="moment-body">
               <div class="moment-tags">${tags}</div>
-              <p>${entry.text}</p>
+              <p>${escapeHtml(entry.text)}</p>
               ${photo}
               ${link}
             </div>
