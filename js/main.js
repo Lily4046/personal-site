@@ -15,21 +15,6 @@
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
-  try {
-    const response = await fetch("/api/site", {
-      headers: { accept: "application/json" },
-      cache: "no-store"
-    });
-    if (response.ok) {
-      const remote = await response.json();
-      if (remote.content && typeof remote.content === "object") {
-        content = remote.content;
-      }
-    }
-  } catch (error) {
-    /* Use the bundled content when the API is unavailable. */
-  }
-
   function setText(selector, text) {
     const node = $(selector);
     if (node) node.textContent = text;
@@ -194,6 +179,28 @@
     setText("#year", String(new Date().getFullYear()));
   }
 
+  async function syncRemoteContent() {
+    try {
+      const response = await fetch("/api/site", {
+        headers: { accept: "application/json" },
+        cache: "no-store"
+      });
+      if (!response.ok) return;
+      const remote = await response.json();
+      if (
+        remote.content &&
+        typeof remote.content === "object" &&
+        JSON.stringify(remote.content) !== JSON.stringify(content)
+      ) {
+        content = remote.content;
+        renderContent();
+        setupReveal();
+      }
+    } catch (error) {
+      /* Use the bundled content when the API is unavailable. */
+    }
+  }
+
   function renderProject(project, index) {
     const classes = ["work-card"];
     if (project.featured) classes.push("is-featured");
@@ -206,9 +213,7 @@
       if (hasGallery) galleries[galleryKey] = project.gallery;
 
       const image = `
-        <img src="${project.image}" alt="${project.alt}" ${
-          project.featured ? 'fetchpriority="high"' : 'loading="lazy"'
-        }>
+        <img src="${project.image}" alt="${project.alt}" loading="lazy" decoding="async" fetchpriority="low">
         ${
           hasGallery
             ? `<span class="work-media-hint" aria-hidden="true">
@@ -698,6 +703,8 @@
   let canvasWidth = 0;
   let canvasHeight = 0;
   let waveFrame = 0;
+  let lastWaveDraw = 0;
+  let wavesVisible = true;
   let waveStart = performance.now();
 
   function sizeCanvas() {
@@ -748,8 +755,11 @@
   }
 
   function animateWaves(now) {
-    drawWaves(now);
-    if (!reduceMotion.matches && !document.hidden) {
+    if (now - lastWaveDraw >= 33) {
+      drawWaves(now);
+      lastWaveDraw = now;
+    }
+    if (!reduceMotion.matches && !document.hidden && wavesVisible) {
       waveFrame = window.requestAnimationFrame(animateWaves);
     }
   }
@@ -772,11 +782,26 @@
   });
 
   document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && !reduceMotion.matches) {
+    if (!document.hidden && !reduceMotion.matches && wavesVisible) {
       window.cancelAnimationFrame(waveFrame);
       waveFrame = window.requestAnimationFrame(animateWaves);
     }
   });
+
+  if ("IntersectionObserver" in window) {
+    const waveObserver = new IntersectionObserver(
+      ([entry]) => {
+        wavesVisible = entry.isIntersecting;
+        if (wavesVisible) {
+          startWaves();
+        } else {
+          window.cancelAnimationFrame(waveFrame);
+        }
+      },
+      { rootMargin: "120px" }
+    );
+    waveObserver.observe(canvas.closest(".wave-band"));
+  }
 
   reduceMotion.addEventListener("change", startWaves);
 
@@ -787,4 +812,5 @@
   renderContent();
   setupReveal();
   startWaves();
+  window.requestAnimationFrame(syncRemoteContent);
 })();
