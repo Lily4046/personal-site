@@ -1,0 +1,569 @@
+/* Secondary-culture accent layer */
+
+:root {
+  --anime-pink: #ff69b4;
+  --anime-violet: #8b5cf6;
+  --anime-cyan: #4dd8e6;
+  --anime-night: #16162a;
+}
+
+[data-theme="dark"] {
+  --anime-pink: #ff8cc8;
+  --anime-violet: #a78bfa;
+  --anime-cyan: #67e8f9;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--anime-pink) 55%, transparent);
+  color: var(--ink);
+}
+
+.hero {
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 81% 26%,
+      color-mix(in srgb, var(--anime-pink) 16%, transparent),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 69% 62%,
+      color-mix(in srgb, var(--anime-cyan) 13%, transparent),
+      transparent 28%
+    ),
+    var(--paper);
+}
+
+.hero::before {
+  display: block !important;
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--anime-violet) 26%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+  opacity: 0.3;
+  mask-image: linear-gradient(110deg, transparent 42%, #000 74%, transparent);
+}
+
+.hero::after {
+  display: block !important;
+  top: auto;
+  right: 9%;
+  bottom: 12%;
+  width: 230px;
+  height: 230px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--anime-pink) 20%, transparent),
+    transparent 68%
+  );
+  border: 0;
+  border-radius: 50%;
+  filter: blur(24px);
+  opacity: 1;
+}
+
+.hero-eyebrow {
+  width: max-content;
+  max-width: 100%;
+  padding: 7px 11px;
+  background: color-mix(in srgb, var(--paper-soft) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--anime-pink) 45%, var(--line));
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.hero-eyebrow::after {
+  content: "✦ CHIBI / 73";
+  margin-left: 4px;
+  color: var(--anime-pink);
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.06em;
+}
+
+.hero-title .accent {
+  background: linear-gradient(
+    96deg,
+    var(--anime-pink) 4%,
+    var(--anime-violet) 46%,
+    var(--red) 95%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 10px 35px color-mix(in srgb, var(--anime-violet) 20%, transparent);
+}
+
+.desktop-nav a.is-active {
+  color: var(--anime-violet);
+}
+
+.desktop-nav a::after {
+  height: 2px;
+  background: linear-gradient(90deg, var(--anime-pink), var(--anime-violet));
+}
+
+.theme-toggle:hover,
+.layout-toggle:hover,
+.menu-toggle:hover {
+  color: var(--anime-violet);
+  border-color: var(--anime-violet);
+  background: color-mix(in srgb, var(--anime-violet) 9%, var(--paper-soft));
+}
+
+.button,
+.mini-button {
+  background: linear-gradient(120deg, var(--anime-night), #272458);
+}
+
+.button:hover,
+.mini-button:hover {
+  background: linear-gradient(120deg, var(--anime-pink), var(--anime-violet));
+  border-color: transparent;
+}
+
+.hero-visual {
+  overflow: visible;
+  background:
+    radial-gradient(
+      circle at 82% 16%,
+      color-mix(in srgb, var(--anime-pink) 25%, transparent),
+      transparent 22%
+    ),
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--anime-violet) 14%, var(--paper-soft)),
+      var(--paper-soft) 58%,
+      color-mix(in srgb, var(--anime-cyan) 11%, var(--paper-soft))
+    );
+  border-color: color-mix(in srgb, var(--anime-violet) 32%, var(--line));
+  box-shadow:
+    0 22px 65px -42px color-mix(in srgb, var(--anime-violet) 70%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, white 45%, transparent);
+}
+
+.hero-visual::before {
+  top: 18px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: color-mix(in srgb, var(--anime-pink) 12%, transparent);
+  border-color: color-mix(in srgb, var(--anime-pink) 75%, transparent);
+  box-shadow:
+    0 0 0 8px color-mix(in srgb, var(--anime-pink) 8%, transparent),
+    0 0 0 16px color-mix(in srgb, var(--anime-violet) 5%, transparent);
+}
+
+.hero-visual::after {
+  content: "CQ CQ / 73";
+  position: absolute;
+  right: -6px;
+  bottom: 28px;
+  z-index: 4;
+  display: flex !important;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 13px;
+  background: var(--paper-soft);
+  color: var(--anime-violet);
+  border: 1px solid color-mix(in srgb, var(--anime-violet) 38%, var(--line));
+  border-radius: 16px 16px 16px 5px;
+  box-shadow: 0 10px 26px -18px rgba(16, 24, 40, 0.35);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transform: rotate(-4deg);
+}
+
+.station-card {
+  z-index: 2;
+  border-color: color-mix(in srgb, var(--anime-violet) 26%, var(--line));
+  box-shadow:
+    0 26px 70px -42px color-mix(in srgb, var(--anime-violet) 58%, transparent),
+    0 0 0 6px color-mix(in srgb, var(--anime-pink) 4%, transparent);
+}
+
+.station-card::after {
+  content: "ちび";
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  padding: 4px 8px;
+  background: linear-gradient(120deg, var(--anime-pink), var(--anime-violet));
+  color: #fff;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px -10px rgba(139, 92, 246, 0.8);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transform: rotate(3deg);
+}
+
+.station-card::before {
+  background: linear-gradient(90deg, var(--anime-pink), var(--anime-violet));
+}
+
+.station-avatar {
+  border-color: color-mix(in srgb, var(--anime-pink) 65%, white);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--anime-pink) 12%, transparent),
+    0 0 22px color-mix(in srgb, var(--anime-violet) 22%, transparent);
+}
+
+.station-status,
+.station-status i {
+  color: var(--anime-violet);
+  background-color: var(--anime-violet);
+}
+
+.station-status {
+  background: transparent !important;
+}
+
+.station-callsign {
+  background: linear-gradient(100deg, var(--ink) 20%, var(--anime-violet));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.anime-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.anime-sparkles i {
+  position: absolute;
+  color: var(--anime-pink);
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 1;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--anime-pink) 55%, transparent);
+  animation: anime-twinkle 2.8s ease-in-out infinite;
+}
+
+.anime-sparkles i:nth-child(1) {
+  top: 16%;
+  left: 9%;
+  font-size: 18px;
+}
+
+.anime-sparkles i:nth-child(2) {
+  top: 11%;
+  right: 22%;
+  color: var(--anime-cyan);
+  font-size: 11px;
+  animation-delay: -0.9s;
+}
+
+.anime-sparkles i:nth-child(3) {
+  right: 5%;
+  bottom: 35%;
+  color: var(--anime-violet);
+  font-size: 22px;
+  animation-delay: -1.7s;
+}
+
+.anime-sparkles i:nth-child(4) {
+  bottom: 10%;
+  left: 17%;
+  color: var(--anime-cyan);
+  font-size: 12px;
+  animation-delay: -2.2s;
+}
+
+@keyframes anime-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12) rotate(12deg);
+  }
+}
+
+.section-kicker::before {
+  content: "✦";
+  margin-right: 6px;
+  color: var(--anime-pink);
+}
+
+.section-title {
+  background: linear-gradient(
+    100deg,
+    var(--ink) 15%,
+    var(--ink) 68%,
+    color-mix(in srgb, var(--anime-violet) 78%, var(--ink))
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.work-card {
+  position: relative;
+}
+
+.work-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    130deg,
+    color-mix(in srgb, var(--anime-pink) 70%, transparent),
+    transparent 35%,
+    transparent 65%,
+    color-mix(in srgb, var(--anime-cyan) 65%, transparent)
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.work-card:hover::before {
+  opacity: 1;
+}
+
+.work-card:hover {
+  box-shadow:
+    0 22px 54px -34px color-mix(in srgb, var(--anime-violet) 45%, transparent);
+}
+
+.work-media-hint {
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--anime-night) 84%, transparent),
+    color-mix(in srgb, var(--anime-violet) 74%, transparent)
+  );
+}
+
+.log-entry,
+.qsl-callout,
+.now-card,
+.moment-entry {
+  position: relative;
+}
+
+.log-entry::after,
+.moment-entry::after {
+  content: "✦";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: color-mix(in srgb, var(--anime-pink) 70%, transparent);
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.log-entry:hover,
+.moment-entry:hover {
+  border-color: color-mix(in srgb, var(--anime-violet) 30%, var(--line));
+  box-shadow: 0 18px 44px -34px color-mix(in srgb, var(--anime-violet) 48%, transparent);
+}
+
+.log-action {
+  color: var(--anime-violet);
+}
+
+.qsl-callout {
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--anime-violet) 24%, var(--line));
+  background:
+    radial-gradient(
+      circle at 88% 10%,
+      color-mix(in srgb, var(--anime-pink) 11%, transparent),
+      transparent 26%
+    ),
+    var(--card);
+}
+
+.qsl-callout::after {
+  content: "✦";
+  position: absolute;
+  right: 24px;
+  bottom: 15px;
+  display: block;
+  color: color-mix(in srgb, var(--anime-pink) 72%, transparent);
+  font-size: 22px;
+  pointer-events: none;
+}
+
+.qsl-callout-card {
+  outline: 4px solid color-mix(in srgb, var(--anime-pink) 7%, transparent);
+}
+
+.qsl-qth-label {
+  color: var(--anime-violet);
+}
+
+.now-card {
+  overflow: hidden;
+}
+
+.now-card::before {
+  content: "✦";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: color-mix(in srgb, var(--anime-violet) 55%, transparent);
+  font-size: 14px;
+}
+
+.now-card:nth-child(1) {
+  background: color-mix(in srgb, var(--anime-violet) 8%, var(--card));
+}
+
+.now-card:nth-child(2) {
+  background: color-mix(in srgb, var(--anime-cyan) 9%, var(--card));
+}
+
+.now-card:nth-child(3) {
+  background: color-mix(in srgb, var(--anime-pink) 8%, var(--card));
+}
+
+.contact-title {
+  background: linear-gradient(
+    105deg,
+    #fff 8%,
+    color-mix(in srgb, var(--anime-cyan) 72%, #fff) 52%,
+    color-mix(in srgb, var(--anime-pink) 78%, #fff)
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.contact-section {
+  background:
+    radial-gradient(
+      circle at 78% 14%,
+      color-mix(in srgb, var(--anime-violet) 35%, transparent),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 12% 82%,
+      color-mix(in srgb, var(--anime-cyan) 16%, transparent),
+      transparent 25%
+    ),
+    var(--contact-bg);
+}
+
+.contact-link:hover {
+  color: color-mix(in srgb, var(--anime-pink) 76%, #fff);
+}
+
+.moments-hero {
+  background:
+    radial-gradient(
+      circle at 84% 23%,
+      color-mix(in srgb, var(--anime-pink) 15%, transparent),
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 61% 82%,
+      color-mix(in srgb, var(--anime-cyan) 11%, transparent),
+      transparent 22%
+    ),
+    var(--paper);
+}
+
+.moments-hero::before {
+  display: block !important;
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--anime-violet) 24%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+  opacity: 0.25;
+  mask-image: linear-gradient(110deg, transparent 42%, #000 80%);
+}
+
+.moments-hero::after {
+  display: block !important;
+  content: "✦";
+  position: absolute;
+  top: 23%;
+  right: 8%;
+  width: auto;
+  height: auto;
+  color: color-mix(in srgb, var(--anime-pink) 72%, transparent);
+  border: 0;
+  font-size: 34px;
+  opacity: 0.8;
+}
+
+.moments-title {
+  background: linear-gradient(
+    100deg,
+    var(--ink) 12%,
+    var(--ink) 63%,
+    var(--anime-violet)
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.moments-now {
+  border-color: color-mix(in srgb, var(--anime-violet) 25%, var(--line));
+  background:
+    radial-gradient(
+      circle at 92% 8%,
+      color-mix(in srgb, var(--anime-pink) 12%, transparent),
+      transparent 28%
+    ),
+    var(--card);
+}
+
+.moment-filter.is-active {
+  background: linear-gradient(120deg, var(--anime-violet), var(--red));
+  border-color: transparent;
+}
+
+.moment-link {
+  color: var(--anime-violet);
+}
+
+@media (max-width: 640px) {
+  .hero-eyebrow::after {
+    display: none;
+  }
+
+  .hero-visual::after {
+    right: 10px;
+    bottom: 14px;
+    font-size: 7px;
+  }
+
+  .anime-sparkles i:nth-child(3) {
+    right: 2%;
+  }
+
+  .section-title,
+  .moments-title {
+    background: none;
+    color: var(--ink);
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anime-sparkles i {
+    animation: none;
+  }
+}
+
